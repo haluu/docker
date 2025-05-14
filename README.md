@@ -1,2 +1,2 @@
 # docker
-Docker container collection with Traefik reverse proxy
+docker-compose + Dockerfile collection with Traefik reverse proxy and Authentik Single Sign-On
