@@ -1,2 +1,2 @@
 # docker
-Docker container collection under Traefik reverse proxy
+Docker container collection with Traefik reverse proxy
