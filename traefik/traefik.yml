@@ -1,0 +1,40 @@
+api:
+  dashboard: true
+
+entryPoints:
+  http:
+    address: ":80"
+    reusePort: true
+    http:
+      redirections:
+        entryPoint:
+          to: https
+          scheme: https
+
+  https:
+    address: ":443"
+    http:
+      tls:
+        certResolver: buypass
+
+serversTransport:
+  insecureSkipVerify: true
+
+providers:
+  docker:
+    endpoint: "tcp://socket-proxy:2375"
+    exposedByDefault: false
+    network: proxy
+
+  file:
+    filename: configurations/dynamic.yml
+    watch: true
+
+certificatesResolvers:
+  buypass:
+    acme:
+      email: EMAIL@CHANGE_ME.TLD
+      storage: acme.json
+      caserver: https://api.buypass.com/acme/directory
+      httpChallenge:
+        entryPoint: http
