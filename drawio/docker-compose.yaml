@@ -22,7 +22,7 @@ services:
       - traefik.http.services.${PROJECT_NAME}.loadbalancer.server.port=8080
       - traefik.docker.network=proxy
       # watchtower update
-      - com.centurylinklabs.watchtower.enable=true
+      - com.centurylinklabs.watchtower.enable=${ENABLE_WATCHTOWER}
     networks:
       - proxy
 
